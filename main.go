@@ -2,21 +2,21 @@ package main
 
 import (
 	"context"
-	pb "github.com/golanshy/grpc-playground/keyvalue"
+	gen "github.com/golanshy/grpc-playground/gen"
 )
 
 type server struct {
-	pb.UnimplementedKeyValueServer
+	gen.UnimplementedKeyValueServer
 }
 
-func (s *server) Get(ctx context.Context, r *pb.GetRequest) (*pb.GetResponse, error) {
+func (s *server) Get(ctx context.Context, r *gen.GetRequest) (*gen.GetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method not implemented")
 }
 
-func (s *server) Put(ctx context.Context, r *pb.GetRequest) (*pb.GetResponse, error) {
+func (s *server) Put(ctx context.Context, r *gen.GetRequest) (*gen.GetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method not implemented")
 }
 
-func (s *server) Delete(ctx context.Context, r *pb.GetRequest) (*pb.GetResponse, error) {
+func (s *server) Delete(ctx context.Context, r *gen.GetRequest) (*gen.GetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method not implemented")
 }
