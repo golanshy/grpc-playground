@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "github.com/golanshy/grpc-playground/data";
+
+message Point {
+  int32 x = 1;
+  int32 y = 2;
+  string label = 3;
+}
+
+message Line {
+  Point start = 1;
+  Point end = 2;
+  string label = 3;
+}
+
+message Polygon {
+  repeated Point = 1;
+  string label = 2;
+}
+
