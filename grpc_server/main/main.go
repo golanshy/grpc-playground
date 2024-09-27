@@ -2,7 +2,7 @@ package main
 
 import (
 	pb "github.com/golanshy/grpc-playground/gen"
-	"github.com/golanshy/grpc-playground/pb_server"
+	pb_server "github.com/golanshy/grpc-playground/grpc_server"
 	"google.golang.org/grpc"
 	"log"
 	"net"
