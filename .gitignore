@@ -1,6 +1,5 @@
 .env
 .idea/
 grpc-playground
-main
 pbServer
 pbClient

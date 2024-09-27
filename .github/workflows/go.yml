@@ -28,8 +28,8 @@ jobs:
       run: go test -v ./...
 
     - name: Build Server
-      run: go build -o pbServer -v  ./pb_server/main/.
+      run: go build -o pbServer -v  ./grpc_server/main/.
 
     - name: Build Client
-      run: go build -o pbClient -v  ./pb_client/main/.
+      run: go build -o pbClient -v  ./grpc_client/main/.
 
