@@ -1,6 +1,6 @@
 module github.com/golanshy/grpc-playground
 
-go 1.23.1
+go 1.23
 
 require (
 	google.golang.org/grpc v1.67.0
