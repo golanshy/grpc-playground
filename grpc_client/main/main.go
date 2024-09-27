@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	pb "github.com/golanshy/grpc-playground/gen"
+	gen "github.com/golanshy/grpc-playground/gen"
 	"google.golang.org/grpc"
 	"log"
 	"os"
@@ -22,7 +22,7 @@ func main() {
 
 	defer conn.Close()
 
-	client := pb.NewKeyValueClient(conn)
+	client := gen.NewKeyValueClient(conn)
 
 	var action, key, value string
 
@@ -39,14 +39,14 @@ func main() {
 	switch action {
 
 	case "get":
-		r, err := client.Get(ctx, &pb.GetRequest{Key: key})
+		r, err := client.Get(ctx, &gen.GetRequest{Key: key})
 		if err != nil {
 			log.Fatalf("Could not get value for key %s: %v", key, err)
 		}
 		log.Printf("Get %s returns %s", key, r.Value)
 
 	case "put":
-		_, err := client.Put(ctx, &pb.PutRequest{Key: key, Value: value})
+		_, err := client.Put(ctx, &gen.PutRequest{Key: key, Value: value})
 		if err != nil {
 			log.Fatalf("Could not get value for key %s: %v", key, err)
 		}

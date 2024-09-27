@@ -1,8 +1,8 @@
 package main
 
 import (
-	pb "github.com/golanshy/grpc-playground/gen"
-	pb_server "github.com/golanshy/grpc-playground/grpc_server"
+	gen "github.com/golanshy/grpc-playground/gen"
+	grpcServer "github.com/golanshy/grpc-playground/grpc_server"
 	"google.golang.org/grpc"
 	"log"
 	"net"
@@ -13,7 +13,7 @@ func main() {
 	log.Print("Setting up GRPC Server")
 
 	s := grpc.NewServer()
-	pb.RegisterKeyValueServer(s, &pb_server.Server{})
+	gen.RegisterKeyValueServer(s, &grpcServer.Server{})
 
 	lis, err := net.Listen("tcp", ":50051")
 	if err != nil {
