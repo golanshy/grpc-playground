@@ -8,6 +8,8 @@ protoc --proto_path=. \
 ./keyvalue.proto  
 
 
-## Build
-go build -v ./. 
+## Build server
+go build -o pbServer -v  ./pb_server/main/.
 
+## Build client
+go build -o pbClient -v  ./pb_client/main/. 

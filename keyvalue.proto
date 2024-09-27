@@ -7,7 +7,7 @@ message GetRequest {
 }
 
 message GetResponse {
-  string key = 1;
+  string value = 1;
 }
 
 message PutRequest {
