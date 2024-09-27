@@ -1,22 +1,23 @@
 package main
 
 import (
-	"context"
-	gen "github.com/golanshy/grpc-playground/gen"
+	pb "github.com/golanshy/grpc-playground/gen"
+	"github.com/golanshy/grpc-playground/pb_server"
+	"google.golang.org/grpc"
+	"log"
+	"net"
 )
 
-type server struct {
-	gen.UnimplementedKeyValueServer
-}
+func main() {
+	s := grpc.NewServer()
+	pb.RegisterKeyValueServer(s, &pb_server.Server{})
 
-func (s *server) Get(ctx context.Context, r *gen.GetRequest) (*gen.GetResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method not implemented")
-}
+	lis, err := net.Listen("tcp", ":50051")
+	if err != nil {
+		log.Fatalf("failed to listen: %v", err)
+	}
 
-func (s *server) Put(ctx context.Context, r *gen.GetRequest) (*gen.GetResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method not implemented")
-}
-
-func (s *server) Delete(ctx context.Context, r *gen.GetRequest) (*gen.GetResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method not implemented")
+	if err := s.Serve(lis); err != nil {
+		log.Fatalf("failed to serve: %v", err)
+	}
 }

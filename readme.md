@@ -8,3 +8,6 @@ protoc --proto_path=. \
 ./keyvalue.proto  
 
 
+## Build
+go build -v ./. 
+
